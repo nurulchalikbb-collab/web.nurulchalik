@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pondok Pesantren Nurul Chalik</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            light: '#FEF08A', // Yellow 200
+                            DEFAULT: '#EAB308', // Yellow 500 (Warna Utama)
+                            dark: '#CA8A04', // Yellow 600
+                        },
+                        dark: {
+                            DEFAULT: '#1E293B', // Slate 800
+                            deeper: '#0F172A', // Slate 900
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'], // Untuk Heading yang elegan
+                        sans: ['Poppins', 'sans-serif'], // Untuk teks paragraf yang bersih
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom Styles for extra elegance */
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        .hero-pattern {
+            background-image: url('https://images.unsplash.com/photo-1564683214965-36195fb24e39?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(234, 179, 8, 0.1), 0 10px 10px -5px rgba(234, 179, 8, 0.04);
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-700 bg-gray-50 antialiased selection:bg-primary selection:text-dark-deeper">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 glass-nav shadow-sm transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-3">
+                    <div class="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-dark-deeper font-bold text-xl shadow-lg">
+                        <i class="fa-solid fa-book-quran"></i>
+                    </div>
+                    <a href="#" class="font-serif font-bold text-2xl text-dark-deeper tracking-wide">Nurul <span class="text-primary-dark">Chalik</span></a>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#beranda" class="text-gray-600 hover:text-primary-dark font-medium transition duration-300">Beranda</a>
+                    <a href="#profil" class="text-gray-600 hover:text-primary-dark font-medium transition duration-300">Profil</a>
+                    <a href="#program" class="text-gray-600 hover:text-primary-dark font-medium transition duration-300">Program</a>
+                    <a href="#fasilitas" class="text-gray-600 hover:text-primary-dark font-medium transition duration-300">Fasilitas</a>
+                    <a href="#pendaftaran" class="bg-primary hover:bg-primary-dark text-dark-deeper font-semibold px-6 py-2 rounded-full transition duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">Daftar Sekarang</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-primary focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full shadow-xl">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="#beranda" class="block px-3 py-2 text-gray-600 hover:text-primary hover:bg-gray-50 rounded-md font-medium">Beranda</a>
+                <a href="#profil" class="block px-3 py-2 text-gray-600 hover:text-primary hover:bg-gray-50 rounded-md font-medium">Profil</a>
+                <a href="#program" class="block px-3 py-2 text-gray-600 hover:text-primary hover:bg-gray-50 rounded-md font-medium">Program</a>
+                <a href="#fasilitas" class="block px-3 py-2 text-gray-600 hover:text-primary hover:bg-gray-50 rounded-md font-medium">Fasilitas</a>
+                <a href="#pendaftaran" class="block mt-4 text-center bg-primary text-dark-deeper font-semibold px-3 py-3 rounded-md shadow-md">Daftar Sekarang</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="beranda" class="relative min-h-screen flex items-center hero-pattern pt-20">
+        <!-- Dark Overlay for elegant contrast -->
+        <div class="absolute inset-0 bg-dark-deeper bg-opacity-70"></div>
+        
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:text-left flex flex-col md:flex-row items-center">
+            <div class="w-full md:w-2/3 pt-20 md:pt-0">
+                <span class="inline-block py-1 px-3 rounded-full bg-primary bg-opacity-20 text-primary-light border border-primary font-medium text-sm mb-6 tracking-wider uppercase">
+                    Penerimaan Santri Baru 2026/2027
+                </span>
+                <h1 class="font-serif text-4xl md:text-6xl lg:text-7xl text-white font-bold leading-tight mb-6">
+                    Mencetak Generasi <br>
+                    <span class="text-primary">Qur'ani & Berakhlakul Karimah</span>
+                </h1>
+                <p class="text-gray-300 text-lg md:text-xl mb-10 max-w-2xl font-light leading-relaxed">
+                    Pondok Pesantren Nurul Chalik memadukan pendidikan pesantren salaf dan modern untuk mempersiapkan pemimpin masa depan yang berilmu amaliah dan beramal ilmiah.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                    <a href="#profil" class="bg-primary hover:bg-primary-dark text-dark-deeper px-8 py-4 rounded-full font-bold transition duration-300 shadow-[0_0_15px_rgba(234,179,8,0.5)] hover:shadow-[0_0_25px_rgba(234,179,8,0.7)] text-center">
+                        Jelajahi Profil
+                    </a>
+                    <a href="#program" class="bg-transparent border-2 border-primary text-primary hover:bg-primary hover:text-dark-deeper px-8 py-4 rounded-full font-bold transition duration-300 text-center">
+                        Program Kami
+                    </a>
+                </div>
+            </div>
+            <div class="hidden md:flex w-full md:w-1/3 justify-center mt-12 md:mt-0 relative">
+                <!-- Decorative element -->
+                <div class="absolute -inset-4 bg-primary rounded-full opacity-20 blur-2xl animate-pulse"></div>
+                <img src="https://images.unsplash.com/photo-1601000676451-de1a4cbac4c5?q=80&w=1000&auto=format&fit=crop" alt="Santri Belajar" class="relative rounded-t-full rounded-b-[4rem] border-4 border-primary shadow-2xl object-cover h-[500px] w-full max-w-sm" style="border-bottom-width: 12px;">
+            </div>
+        </div>
+
+        <!-- Scroll down indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10 animate-bounce">
+            <a href="#profil" class="text-primary opacity-80 hover:opacity-100">
+                <i class="fa-solid fa-chevron-down text-3xl"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Profil Section -->
+    <section id="profil" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center gap-16">
+                <!-- Image Side -->
+                <div class="w-full md:w-1/2 relative">
+                    <div class="absolute -top-4 -left-4 w-24 h-24 bg-primary rounded-tl-3xl z-0 opacity-50"></div>
+                    <div class="absolute -bottom-4 -right-4 w-24 h-24 bg-dark rounded-br-3xl z-0 opacity-10"></div>
+                    <img src="https://images.unsplash.com/photo-1598514982205-f36b96d1e8dd?q=80&w=2070&auto=format&fit=crop" alt="Gedung Pesantren" class="relative z-10 rounded-2xl shadow-xl w-full object-cover h-[400px]">
+                    <!-- Stats badge -->
+                    <div class="absolute -bottom-10 right-10 bg-white p-6 rounded-xl shadow-2xl z-20 border-b-4 border-primary">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-primary-light text-primary-dark rounded-full flex items-center justify-center text-2xl">
+                                <i class="fa-solid fa-users"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-serif font-bold text-2xl text-dark">1,500+</h4>
+                                <p class="text-sm text-gray-500">Santri Aktif</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Text Side -->
+                <div class="w-full md:w-1/2 mt-12 md:mt-0">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="h-1 w-12 bg-primary"></div>
+                        <h3 class="text-primary-dark font-semibold uppercase tracking-wider text-sm">Tentang Kami</h3>
+                    </div>
+                    <h2 class="font-serif text-3xl md:text-4xl text-dark-deeper font-bold mb-6">Membangun Karakter Melalui Pendidikan Pesantren</h2>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Didirikan dengan niat suci untuk membumikan ajaran Islam, Pondok Pesantren Nurul Chalik telah menjadi wadah pendidikan yang menjunjung tinggi nilai-nilai Ahlussunnah wal Jama'ah. Kami menggabungkan kurikulum Kementerian Agama dengan kajian kitab kuning tradisional.
+                    </p>
+                    
+                    <div class="space-y-4 mb-8">
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 mt-1">
+                                <i class="fa-solid fa-circle-check text-primary text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-dark">Visi</h4>
+                                <p class="text-sm text-gray-600">Menjadi lembaga pendidikan Islam terkemuka yang melahirkan generasi berilmu, berakhlak mulia, dan mandiri.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 mt-1">
+                                <i class="fa-solid fa-circle-check text-primary text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-dark">Misi</h4>
+                                <p class="text-sm text-gray-600">Menyelenggarakan pendidikan tahfidz, kajian kitab turots, serta membekali santri dengan keterampilan abad 21.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="#" class="inline-flex items-center gap-2 text-primary-dark font-semibold hover:text-primary transition duration-300">
+                        Baca Sejarah Lengkap <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Program Section -->
+    <section id="program" class="py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <div class="flex items-center justify-center gap-3 mb-4">
+                    <div class="h-1 w-8 bg-primary"></div>
+                    <h3 class="text-primary-dark font-semibold uppercase tracking-wider text-sm">Pendidikan & Program</h3>
+                    <div class="h-1 w-8 bg-primary"></div>
+                </div>
+                <h2 class="font-serif text-3xl md:text-5xl text-dark-deeper font-bold mb-6">Program Unggulan Kami</h2>
+                <p class="text-gray-600">Kami menyediakan berbagai tingkatan pendidikan dan program khusus untuk menjawab kebutuhan zaman tanpa meninggalkan tradisi salaf.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 card-hover transition duration-300 group">
+                    <div class="w-16 h-16 bg-gray-50 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary transition duration-300 shadow-inner">
+                        <i class="fa-solid fa-quran text-3xl text-primary-dark group-hover:text-white transition duration-300"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-dark mb-3">Tahfidzul Qur'an</h3>
+                    <p class="text-gray-600 mb-4 text-sm leading-relaxed">Program khusus menghafal Al-Qur'an 30 Juz dengan metode yang sistematis dan bimbingan musyrif berpengalaman.</p>
+                    <ul class="text-sm text-gray-500 space-y-2">
+                        <li><i class="fa-solid fa-check text-primary mr-2"></i> Target hafalan jelas</li>
+                        <li><i class="fa-solid fa-check text-primary mr-2"></i> Setoran rutin harian</li>
+                    </ul>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 card-hover transition duration-300 group">
+                    <div class="w-16 h-16 bg-gray-50 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary transition duration-300 shadow-inner">
+                        <i class="fa-solid fa-book-open text-3xl text-primary-dark group-hover:text-white transition duration-300"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-dark mb-3">Madrasah Diniyah (Kitab Kuning)</h3>
+                    <p class="text-gray-600 mb-4 text-sm leading-relaxed">Pengkajian kitab-kitab turots (kitab kuning) dalam bidang Fiqih, Aqidah, Akhlak, Nahwu, dan Shorof.</p>
+                    <ul class="text-sm text-gray-500 space-y-2">
+                        <li><i class="fa-solid fa-check text-primary mr-2"></i> Metode Sorogan & Bandongan</li>
+                        <li><i class="fa-solid fa-check text-primary mr-2"></i> Kajian Bahtsul Masail</li>
+                    </ul>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 card-hover transition duration-300 group">
+                    <div class="w-16 h-16 bg-gray-50 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary transition duration-300 shadow-inner">
+                        <i class="fa-solid fa-graduation-cap text-3xl text-primary-dark group-hover:text-white transition duration-300"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-dark mb-3">Pendidikan Formal</h3>
+                    <p class="text-gray-600 mb-4 text-sm leading-relaxed">Menyelenggarakan jenjang pendidikan formal berbasis kurikulum nasional yang terintegrasi dengan kepesantrenan.</p>
+                    <ul class="text-sm text-gray-500 space-y-2">
+                        <li><i class="fa-solid fa-check text-primary mr-2"></i> MTs Nurul Chalik</li>
+                        <li><i class="fa-solid fa-check text-primary mr-2"></i> MA Nurul Chalik</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fasilitas Section -->
+    <section id="fasilitas" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+                <div class="max-w-2xl">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="h-1 w-8 bg-primary"></div>
+                        <h3 class="text-primary-dark font-semibold uppercase tracking-wider text-sm">Fasilitas Lengkap</h3>
+                    </div>
+                    <h2 class="font-serif text-3xl md:text-4xl text-dark-deeper font-bold">Lingkungan Nyaman Untuk Belajar</h2>
+                </div>
+                <div class="mt-6 md:mt-0">
+                    <a href="#" class="bg-dark hover:bg-primary text-white hover:text-dark-deeper px-6 py-3 rounded-full font-medium transition duration-300">Lihat Semua Galeri</a>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <!-- Fasilitas 1 -->
+                <div class="relative group overflow-hidden rounded-xl h-64">
+                    <img src="https://images.unsplash.com/photo-1542816417-0983c9c9ad53?q=80&w=2070&auto=format&fit=crop" alt="Masjid" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark-deeper to-transparent opacity-80"></div>
+                    <div class="absolute bottom-0 left-0 p-6">
+                        <h3 class="text-primary font-bold text-xl mb-1">Masjid Utama</h3>
+                        <p class="text-gray-300 text-sm">Pusat ibadah dan kegiatan</p>
+                    </div>
+                </div>
+
+                <!-- Fasilitas 2 -->
+                <div class="relative group overflow-hidden rounded-xl h-64 lg:col-span-2">
+                    <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=2070&auto=format&fit=crop" alt="Asrama" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark-deeper to-transparent opacity-80"></div>
+                    <div class="absolute bottom-0 left-0 p-6">
+                        <h3 class="text-primary font-bold text-xl mb-1">Asrama Santri</h3>
+                        <p class="text-gray-300 text-sm">Bersih, nyaman, dan terkontrol</p>
+                    </div>
+                </div>
+
+                <!-- Fasilitas 3 -->
+                <div class="relative group overflow-hidden rounded-xl h-64">
+                    <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?q=80&w=2070&auto=format&fit=crop" alt="Perpustakaan" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark-deeper to-transparent opacity-80"></div>
+                    <div class="absolute bottom-0 left-0 p-6">
+                        <h3 class="text-primary font-bold text-xl mb-1">Perpustakaan</h3>
+                        <p class="text-gray-300 text-sm">Koleksi kitab dan buku umum</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action / Pendaftaran -->
+    <section id="pendaftaran" class="relative py-24 bg-dark-deeper overflow-hidden">
+        <!-- Abstract yellow shapes -->
+        <div class="absolute top-0 right-0 w-96 h-96 bg-primary rounded-full filter blur-[100px] opacity-20 -translate-y-1/2 translate-x-1/2"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-primary-dark rounded-full filter blur-[100px] opacity-20 translate-y-1/2 -translate-x-1/2"></div>
+        
+        <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center bg-white/5 backdrop-blur-lg border border-white/10 rounded-3xl p-10 md:p-16 shadow-2xl">
+            <h2 class="font-serif text-3xl md:text-5xl text-white font-bold mb-6">Mari Bergabung Menjadi Bagian Keluarga Besar <span class="text-primary">Nurul Chalik</span></h2>
+            <p class="text-gray-300 mb-10 max-w-2xl mx-auto text-lg">
+                Pendaftaran Santri Baru Tahun Ajaran 2026/2027 telah dibuka. Kuota terbatas! Segera daftarkan putra-putri Anda untuk mendapatkan pendidikan Islam terbaik.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#" class="bg-primary hover:bg-primary-dark text-dark-deeper px-8 py-4 rounded-full font-bold text-lg transition duration-300 shadow-[0_0_15px_rgba(234,179,8,0.5)] transform hover:-translate-y-1 flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-user-plus"></i> Daftar Online Sekarang
+                </a>
+                <a href="#" class="bg-transparent border border-gray-400 text-white hover:border-primary hover:text-primary px-8 py-4 rounded-full font-bold text-lg transition duration-300 flex items-center justify-center gap-2">
+                    <i class="fa-brands fa-whatsapp"></i> Hubungi Admin
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark-deeper pt-20 pb-10 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                
+                <!-- Info -->
+                <div class="lg:col-span-1">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-dark-deeper font-bold text-sm">
+                            <i class="fa-solid fa-book-quran"></i>
+                        </div>
+                        <span class="font-serif font-bold text-xl text-white tracking-wide">Nurul <span class="text-primary">Chalik</span></span>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        Membentuk generasi Rabbani yang berilmu, beramal, dan berakhlakul karimah berlandaskan Ahlussunnah wal Jama'ah.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-dark flex items-center justify-center text-gray-400 hover:bg-primary hover:text-dark-deeper transition duration-300">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-dark flex items-center justify-center text-gray-400 hover:bg-primary hover:text-dark-deeper transition duration-300">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-dark flex items-center justify-center text-gray-400 hover:bg-primary hover:text-dark-deeper transition duration-300">
+                            <i class="fa-brands fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Tautan Cepat -->
+                <div>
+                    <h4 class="text-white font-serif font-bold text-lg mb-6 relative inline-block">
+                        Tautan Cepat
+                        <span class="absolute -bottom-2 left-0 w-1/2 h-1 bg-primary rounded-full"></span>
+                    </h4>
+                    <ul class="space-y-3">
+                        <li><a href="#beranda" class="text-gray-400 hover:text-primary transition duration-300 flex items-center gap-2"><i class="fa-solid fa-angle-right text-xs"></i> Beranda</a></li>
+                        <li><a href="#profil" class="text-gray-400 hover:text-primary transition duration-300 flex items-center gap-2"><i class="fa-solid fa-angle-right text-xs"></i> Profil Pesantren</a></li>
+                        <li><a href="#program" class="text-gray-400 hover:text-primary transition duration-300 flex items-center gap-2"><i class="fa-solid fa-angle-right text-xs"></i> Program Pendidikan</a></li>
+                        <li><a href="#fasilitas" class="text-gray-400 hover:text-primary transition duration-300 flex items-center gap-2"><i class="fa-solid fa-angle-right text-xs"></i> Galeri Fasilitas</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition duration-300 flex items-center gap-2"><i class="fa-solid fa-angle-right text-xs"></i> Berita & Artikel</a></li>
+                    </ul>
+                </div>
+
+                <!-- Program -->
+                <div>
+                    <h4 class="text-white font-serif font-bold text-lg mb-6 relative inline-block">
+                        Program Pendidikan
+                        <span class="absolute -bottom-2 left-0 w-1/2 h-1 bg-primary rounded-full"></span>
+                    </h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition duration-300 flex items-center gap-2"><i class="fa-solid fa-angle-right text-xs"></i> Madrasah Tsanawiyah (MTs)</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition duration-300 flex items-center gap-2"><i class="fa-solid fa-angle-right text-xs"></i> Madrasah Aliyah (MA)</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition duration-300 flex items-center gap-2"><i class="fa-solid fa-angle-right text-xs"></i> Tahfidzul Qur'an</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition duration-300 flex items-center gap-2"><i class="fa-solid fa-angle-right text-xs"></i> Madrasah Diniyah Salafiyah</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition duration-300 flex items-center gap-2"><i class="fa-solid fa-angle-right text-xs"></i> Ekstrakurikuler</a></li>
+                    </ul>
+                </div>
+
+                <!-- Kontak -->
+                <div>
+                    <h4 class="text-white font-serif font-bold text-lg mb-6 relative inline-block">
+                        Hubungi Kami
+                        <span class="absolute -bottom-2 left-0 w-1/2 h-1 bg-primary rounded-full"></span>
+                    </h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-location-dot text-primary mt-1"></i>
+                            <span class="text-gray-400 text-sm">Jl. Pesantren No. 123, Desa Sukamaju, Kec. Harapan, Kota Nusantara, 12345</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-phone text-primary"></i>
+                            <span class="text-gray-400 text-sm">+62 812 3456 7890</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-envelope text-primary"></i>
+                            <span class="text-gray-400 text-sm">info@nurulchalik.sch.id</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Copyright -->
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-500 text-sm text-center md:text-left mb-4 md:mb-0">
+                    &copy; 2026 Pondok Pesantren Nurul Chalik. All rights reserved.
+                </p>
+                <div class="flex gap-4 text-sm text-gray-500">
+                    <a href="#" class="hover:text-primary transition">Kebijakan Privasi</a>
+                    <span>|</span>
+                    <a href="#" class="hover:text-primary transition">Syarat & Ketentuan</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script for mobile menu & navbar scroll effect -->
+    <script>
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        const icon = btn.querySelector('i');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+            if (menu.classList.contains('hidden')) {
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            } else {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-xmark');
+            }
+        });
+
+        // Close mobile menu on link click
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            });
+        });
+
+        // Navbar Scroll Effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                navbar.classList.add('shadow-md');
+                navbar.classList.remove('shadow-sm');
+                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                navbar.classList.remove('shadow-md');
+                navbar.classList.add('shadow-sm');
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+    </script>
+</body>
+</html>
